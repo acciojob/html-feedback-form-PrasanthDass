@@ -1,16 +1,81 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>Feedback Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+    }
+    
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      margin-top: 14px;
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="url"], input[type="color"], input[type="range"] {
+      width: 100%;
+      margin-top: 5px;
+      padding: 8px;
+      font-size: 1em;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="color"] {
+      height: 36px;
+      padding: 0;
+      border: none;
+      background: none;
+    }
+    .likeness-value {
+      display: inline-block;
+      margin-left: 12px;
+      font-size: 1em;
+      vertical-align: middle;
+    }
+    button[type="submit"] {
+      margin-top: 22px;
+      width: 100%;
+      padding: 10px 0;
+      background: #333;
+      color: #fff;
+      font-size: 1.1em;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
-
+  <form class="form-container" method="POST">
+    <h2>Feedback Form</h2>
+    
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text" minlength="3" maxlength="50" required>
+    
+    <label for="portfolio">Portfolio:</label>
+    <input id="portfolio" name="portfolio" type="url" required>
+    
+    <label for="favColor">Favorite Color:</label>
+    <input id="favColor" name="favColor" type="color" required>
+    
+    <label for="likeness">Likeness:</label>
+    <input id="likeness" name="likeness" type="range" min="1" max="100" required oninput="document.getElementById('likenessValue').textContent = this.value;">
+    <span class="likeness-value" id="likenessValue">50</span>
+    
+    <button type="submit">Submit</button>
+  </form>
+  
+  <script>
+    // Shows default value of slider on page load
+    document.getElementById('likenessValue').textContent = document.getElementById('likeness').value;
+  </script>
 </body>
-
 </html>
